@@ -1,5 +1,8 @@
 import Image from "next/image";
 
+// ICONS
+import { ThumbUpIcon } from "@heroicons/react/outline";
+
 const Thumbnail = ({ result }) => {
 	const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original/";
 	return (
@@ -15,6 +18,11 @@ const Thumbnail = ({ result }) => {
 			/>
 			<div className="p-2">
 				<p className="truncate max-w-md">{result.overview}</p>
+				<h2>{result.title || result.original_name}</h2>
+				<p>
+					{/* {result.media_type && } */}
+					<ThumbUpIcon />
+				</p>
 			</div>
 		</div>
 	);
