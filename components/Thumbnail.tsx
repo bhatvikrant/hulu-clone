@@ -2,9 +2,15 @@ import Image from "next/image";
 
 // ICONS
 import { ThumbUpIcon } from "@heroicons/react/outline";
+import { Result } from '../pages/index';
 
-const Thumbnail = ({ result }) => {
+interface Props {
+	result: Result
+}
+
+const Thumbnail: React.FC<Props> = ({ result }) => {
 	const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original/";
+
 	return (
 		<div>
 			<Image
@@ -20,7 +26,7 @@ const Thumbnail = ({ result }) => {
 				<p className="truncate max-w-md">{result.overview}</p>
 				<h2>{result.title || result.original_name}</h2>
 				<p>
-					{/* {result.media_type && } */}
+					{/* {result.media_type &&} */}
 					<ThumbUpIcon />
 				</p>
 			</div>

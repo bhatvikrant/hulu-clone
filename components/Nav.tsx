@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 // REQUESTS
 import requests from "../utils/requests";
 
-const Header = () => {
+const Header: React.FC = () => {
 	const router = useRouter();
 	return (
 		<nav className="relative">

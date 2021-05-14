@@ -10,7 +10,7 @@ import Results from "../components/ResultsComponent";
 // UTIL
 import requests from "../utils/requests";
 
-export interface Results {
+export interface Result {
 	vote_average: number;
 	overview: string;
 	release_date: string;
@@ -41,7 +41,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 		}`,
 	).then(res => res.json());
 
-	const results: Results[] = request.results
+	const results: Result[] = request.results
 
 	return {
 		props: {
@@ -50,7 +50,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 	};
 }
 
-const Home: React.FC<{ results: Results[] }> = ({ results }) => {
+const Home: React.FC<{ results: Result[] }> = ({ results }) => {
 
 	return (
 		<div>

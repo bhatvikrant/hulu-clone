@@ -1,11 +1,10 @@
 import Thumbnail from "./Thumbnail";
 
 // INTERFACES
-import { Results } from "../pages";
-
+import { Result } from "../pages";
 
 interface Props {
-	results: Results[]
+	results: Result[]
 }
 
 const ResultsComponent: React.FC<Props> = ({ results }) => {
