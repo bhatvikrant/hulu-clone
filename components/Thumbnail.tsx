@@ -1,3 +1,4 @@
+import { ForwardedRef, forwardRef } from 'react';
 import Image from "next/image";
 
 // ICONS
@@ -8,11 +9,13 @@ interface Props {
 	result: Result
 }
 
-const Thumbnail: React.FC<Props> = ({ result }) => {
+const Thumbnail: React.FC<Props> = forwardRef(({ result }, ref) => {
 	const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original/";
 
 	return (
-		<div className='p-2 group cursor-pointer transition duration-200 ease-in transform sm:hover:scale-105 sm:z-50'>
+		<div
+			ref={ref as ForwardedRef<HTMLDivElement>}
+			className='p-2 group cursor-pointer transition duration-200 ease-in transform sm:hover:scale-105 sm:z-50'>
 			<Image
 				src={
 					`${IMAGE_BASE_URL}${result.backdrop_path || result.poster_path}` ||
@@ -35,6 +38,6 @@ const Thumbnail: React.FC<Props> = ({ result }) => {
 			</div>
 		</div>
 	);
-};
+});
 
 export default Thumbnail;
