@@ -37,6 +37,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 	const genre = context.query.genre as string;
 
 	const request = await fetch(
+		// @ts-ignore
 		`https://api.themoviedb.org/3${requests[genre]?.url || requests.fetchTrending.url
 		}`,
 	).then(res => res.json());
